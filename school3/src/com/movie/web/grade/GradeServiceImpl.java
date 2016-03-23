@@ -11,7 +11,6 @@ public class GradeServiceImpl implements GradeService{
 	// 멤버 필드
 	private static GradeServiceImpl instance = new GradeServiceImpl();
 	
-	
 	public static GradeServiceImpl getInstance() {
 		return instance;
 	}
