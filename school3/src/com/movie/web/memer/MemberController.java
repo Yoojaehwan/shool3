@@ -37,7 +37,7 @@ public class MemberController extends HttpServlet {
     	
     	Command command = new Command();
     	MemberBean member = new MemberBean();
-    	String[] str = Seperator.doSomething(request, response);
+    	String[] str = Seperator.divide(request, response);
     	//str[0] = action;
     	//str[1] = directory;
   
@@ -86,7 +86,7 @@ public class MemberController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Command command = new Command();
     	MemberBean member = new MemberBean();
-    	String[] str = Seperator.doSomething(request, response);
+    	String[] str = Seperator.divide(request, response);
     	//str[0] = action;
     	//str[1] = directory;
   

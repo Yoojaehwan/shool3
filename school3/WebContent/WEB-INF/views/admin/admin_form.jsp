@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:include page="admin_header.jsp"/>
+
 <form action="">
 	<fieldset>
 	<legend>회원관리</legend>

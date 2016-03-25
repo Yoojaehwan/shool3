@@ -9,6 +9,7 @@
 	    	<li class="dropdown active"><a onclick="opr.grade()">성적계산기</a></li>
 	    	<li class="dropdown active"><a onclick="opr.gender()">성별 구분하기</a></li>
 	    	<li class="dropdown active"><a onclick="opr.bigNum()">최대값 구하기</a></li>
+	    	<li class="dropdown active"><a onclick="opr.bigNum()">라이브 스크립트 호출</a></li>
 	    </ul>
     </div>
     <div class="col-xs-12 col-sm-8 display-cell" id="result" style="border: 1px solid black;height: 500px">
@@ -16,7 +17,11 @@
     </div>
 </div>
 </div>	
-<script>
+<script type="text/javascript">
+function liveScript() {
+	alert('라이브스크립트 시절 ( )');
+	
+}
 var test = {
 		test : function() {
 			alert('테스트 중');

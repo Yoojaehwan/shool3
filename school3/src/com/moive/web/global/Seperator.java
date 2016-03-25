@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.movie.web.memer.MemberController;
 
 public class Seperator {
-	public static String[] doSomething(HttpServletRequest request, HttpServletResponse response){
+	public static String[] divide(HttpServletRequest request, HttpServletResponse response){
 	
 		String id="",password="";
     	String path = request.getServletPath();
