@@ -51,4 +51,5 @@
 				</fieldset>
 			</form>
 		</div>
+		<jsp:include page="../global/footer.jsp" />
 	</div>
