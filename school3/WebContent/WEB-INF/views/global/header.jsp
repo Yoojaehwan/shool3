@@ -44,6 +44,7 @@
     	<li><a href="${context}/jquery/event.do">이벤트</a></li>
     	<li><a href="${context}/jquery/selector.do">선택자</a></li>
     	<li><a href="${context}/jquery/traversing.do">조회</a></li>
+    	<li><a href="${context}/jquery/dom.do">dom</a></li>
     </ul>
   </li>
 </ul>

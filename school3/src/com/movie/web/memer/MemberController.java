@@ -25,25 +25,19 @@ public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static MemberService service = MemberServiceImpl.getInstance();
 	
-	
-
-	public static MemberService getService() {
-		return service;
-	}
-
-	// 페이지 이동시에는 doGet  
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	System.out.println("인덱스에서 들어옴");
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+				System.out.println("인덱스에서 들어옴");
     	
     	Command command = new Command();
     	MemberBean member = new MemberBean();
     	String[] str = Seperator.divide(request, response);
     	//str[0] = action;
     	//str[1] = directory;
+    	System.out.println(str[0]);
   
 		switch (str[0]) {
 		case "login" :
-			
 			if (service.isMember(request.getParameter("id")) == true) {
 				System.out.println("=== 아이디가 존재함 ===");
 				member = service.login(request.getParameter("id"), request.getParameter("password"));
@@ -54,7 +48,6 @@ public class MemberController extends HttpServlet {
 					request.setAttribute("member", member);
 					command = CommandFactory.createCommand(str[1],"detail");
 				}
-				
 			} else {
 				System.out.println("=== 로그인 실패 ===");
 				command = CommandFactory.createCommand(str[1],"login_form");
@@ -76,21 +69,6 @@ public class MemberController extends HttpServlet {
 					command = CommandFactory.createCommand(str[1],"detail");
 				}
 				break;
-		default:
-			command = CommandFactory.createCommand(str[1],str[0]);
-			break;
-		}
-		DispatcherServlet.Go(request, response, command);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Command command = new Command();
-    	MemberBean member = new MemberBean();
-    	String[] str = Seperator.divide(request, response);
-    	//str[0] = action;
-    	//str[1] = directory;
-  
-		switch (str[0]) {
 		case "join":
 			member.setId(request.getParameter("id"));
 			member.setName(request.getParameter("name"));
@@ -119,9 +97,9 @@ public class MemberController extends HttpServlet {
 			}
 			break;
 		default:
-			command = CommandFactory.createCommand(str[1], str[0]);
+			command = CommandFactory.createCommand(str[1],str[0]);
 			break;
 		}
 		DispatcherServlet.Go(request, response, command);
-		}
 	}
+}

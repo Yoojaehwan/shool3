@@ -13,8 +13,8 @@ import com.moive.web.global.DispatcherServlet;
 import com.moive.web.global.Seperator;
 import com.movie.web.memer.MemberBean;
 
-@WebServlet({"/jquery/attr.do","/jquery/core.do","/jquery/event.do","/jquery/selector.do",
-	"/jquery/traversing.do"})
+@WebServlet({ "/jquery/attr.do","/jquery/core.do","/jquery/dom.do",
+	"/jquery/event.do","/jquery/selector.do","/jquery/traversing.do"})
 public class JqueryController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

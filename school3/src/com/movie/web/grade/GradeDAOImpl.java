@@ -47,7 +47,6 @@ public class GradeDAOImpl implements GradeDAO {
 	public GradeMemberBean selectGradeByHak(int hak) {
 		MemberBean member = new MemberBean();
 		GradeBean grade = new GradeBean();
-		Map<String,Object> map = new HashMap<String,Object>();
 		GradeMemberBean bean = new GradeMemberBean();
 		try {
 			stmt = conn.createStatement();
@@ -71,8 +70,6 @@ public class GradeDAOImpl implements GradeDAO {
 			e.printStackTrace();
 		}
 		// System.out.println("쿼리 조회 결과 :"+temp.getAddr());
-		map.put("member", member);
-		map.put("grade", grade);
 		return bean;
 	}
 

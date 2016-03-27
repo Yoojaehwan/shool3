@@ -3,6 +3,7 @@ package com.movie.web.grade;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.movie.web.admin.AdminService;
 import com.movie.web.memer.MemberDAO;
 import com.movie.web.memer.MemberDAOImpl;
 

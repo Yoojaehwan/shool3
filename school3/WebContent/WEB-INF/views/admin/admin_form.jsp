@@ -1,39 +1,63 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<jsp:include page="admin_header.jsp" />
 
-<form action="">
-	<fieldset>
-	<legend>회원관리</legend>
-	<table class="table-condensed" style="width: 90%; margin-left: 50px">
-		<tr>
-			<td>전체회원 목록보기</td>
-			<td>
-				<jsp:include page="member_list.jsp"/>
-			</td>
-		</tr>
-		<tr>
-			<td>ID 로 회원검색</td>
-			<td>
-				<input type="text" id="searchById" name="searchById" />
-			</td>
-		</tr>
-		<tr>
-			<td>이름으로 회원검색(동명이인 허용)</td>
-			<td>
-				<input type="text" id="searchByName" name="searchByName" />
-			</td>
-		</tr>
-		<tr>
-			<td>학생 점수 입력</td>
-			<td>
-				<jsp:include page="member_list.jsp"/>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<button>전송</button>
-				<button>취소</button>
-			</td>
-		</tr>
-	</table>
-	</fieldset>
-</form>
+<div class="container" style="width: 1000px; margin: 0 auto;">
+	<div class="row display-table">
+		<div class="col-xs-12 col-sm-4 display-cell">
+			<ul id='admin_sidebar' class="nav nav-pills nav-stacked">
+				<li><a onclick="show.totalList()">전체학생 목록보기</a></li></button>
+				<li><a onclick="show.gradeList()">전체성적 목록보기</a></li>
+				<li><a onclick="show.searchById()">ID로 회원검색</a></li>
+				<li><a onclick="show.scoreAdd()">학생 점수 입력</a></li>
+				<li><a onclick="show.exit()">닫기</a></li>
+			</ul>
+		</div>
+		 <div class="col-xs-12 col-sm-8 display-cell" id="result"
+			style="border: 1px solid black; height: 500px">
+			<div id='totalList' style="display: none;">
+			<jsp:include page="member_list.jsp" />
+			</div>
+			<div id='gradeList' style="display: none;">
+			<jsp:include page="../grade/grade_list.jsp"  />
+			</div>
+			<div id='searchById' style="display: none;">
+			<jsp:include page="../grade/searchById.jsp"  />
+			</div>
+			<div id='scoreAdd' style="display: none;">
+			<jsp:include page="../grade/grade_add.jsp" />
+			</div>
+			</div>
+
+</div>
+
+<script src="$(context)/resources/js/admin.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var arr = $('li');
+		$('#admin_sidebar').children().first().addClass('dropdown active');
+		$('#admin_sidebar').children().click(function() {
+			$(this).siblings().removeClass('dropdown active');
+			$(this).addClass('dropdown active');
+		})
+	}); 
+ var show = {
+	    exit : function() {
+			document.getElementById('totalList').style.display = 'none';
+			document.getElementById('scoreAdd').style.display = 'none';
+			document.getElementById('searchById').style.display = 'none';
+			document.getElementById('gradeList').style.display = 'none';
+		},
+		scoreAdd : function() {
+			document.getElementById('scoreAdd').style.display = '';
+		
+		 },
+		searchById : function(methodType) {
+			document.getElementById('searchById').style.display = '';
+		},
+		totalList : function() {
+			document.getElementById('totalList').style.display = '';
+		}
+	} 
+ 
+</script>

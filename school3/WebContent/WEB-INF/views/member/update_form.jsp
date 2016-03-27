@@ -38,7 +38,8 @@
 						</div>
 					</div>
 					<div class="input_button text-center">
-						<input type="submit" id="updateButton" class="btn btn-primary" value ="수정폼으로 이동"/>
+						<button  id="updateButton">수정확인</button>
+						<!-- <input type="submit" id="updateButton" class="btn btn-primary" value ="수정폼으로 이동"/> -->
 						
 					</div>
 						
@@ -46,3 +47,13 @@
 			</form>
 		</div>
 	</div>
+	<script>
+	
+		    $(function() {
+		  $('form').addClass('form-horizontal');
+			$('#updateButton').addClass('btn btn-primary').click(function() {
+				location.href = '${context}/member/detail.do?id=${member.id}'; 
+			});
+	 
+	         });
+	</script>

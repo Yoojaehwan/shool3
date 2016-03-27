@@ -6,10 +6,21 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>인덱스화면</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 </head>
 <body>
+	<img src="${context}/resources/img/main/index.gif" id="image" alt="" style="margin-left: 30px" />
 	<form action="${context}/global/main.do">
 		<input type="submit" value="홈" />
 	</form>
+	<a href=""></a>
 </body>
+<script type="text/javascript">
+	$(document).ready(function() {
+		location.href = '${context}/global/main.do';
+		$('#image').mouseover(function() {
+			
+		})
+	});
+</script>
 </html>  
