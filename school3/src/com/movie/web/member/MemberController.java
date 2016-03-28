@@ -1,4 +1,4 @@
-package com.movie.web.memer;
+package com.movie.web.member;
 
 import java.io.IOException;
 import java.util.ArrayList;

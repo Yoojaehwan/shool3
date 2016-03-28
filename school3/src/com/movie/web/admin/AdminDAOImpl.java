@@ -12,7 +12,7 @@ import com.movie.web.global.DatabaseFactory;
 import com.movie.web.global.Vendor;
 import com.movie.web.grade.GradeBean;
 import com.movie.web.grade.GradeMemberBean;
-import com.movie.web.memer.MemberBean;
+import com.movie.web.member.MemberBean;
 
 public class AdminDAOImpl implements AdminDAO{
 	private Connection conn; // 오라클 연결 객체

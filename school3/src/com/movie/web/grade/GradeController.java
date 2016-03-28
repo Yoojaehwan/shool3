@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.movie.web.global.Command;
 import com.movie.web.global.CommandFactory;
-import com.movie.web.memer.MemberBean;
-import com.movie.web.memer.MemberServiceImpl;
+import com.movie.web.member.MemberBean;
+import com.movie.web.member.MemberServiceImpl;
 
 /**
  * Servlet implementation class GradeController

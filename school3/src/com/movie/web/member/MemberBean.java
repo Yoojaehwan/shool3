@@ -1,4 +1,4 @@
-package com.movie.web.memer;
+package com.movie.web.member;
 
 public class MemberBean {
 		private String id, password, name, addr;

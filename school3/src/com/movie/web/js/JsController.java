@@ -11,7 +11,7 @@ import com.movie.web.global.Command;
 import com.movie.web.global.CommandFactory;
 import com.movie.web.global.DispatcherServlet;
 import com.movie.web.global.Seperator;
-import com.movie.web.memer.MemberBean;
+import com.movie.web.member.MemberBean;
 
 @WebServlet({"/js/hello.do","/js/var.do","/js/operator.do","/js/function.do",
 	"/js/object.do","/js/bom.do","/js/dom.do","/js/form.do","/js/closure.do","/js/pattern.do"})

@@ -13,7 +13,7 @@ import com.movie.web.admin.AdminBean;
 import com.movie.web.global.Constants;
 import com.movie.web.global.DatabaseFactory;
 import com.movie.web.global.Vendor;
-import com.movie.web.memer.MemberBean;
+import com.movie.web.member.MemberBean;
 
 public class GradeDAOImpl implements GradeDAO {
 	

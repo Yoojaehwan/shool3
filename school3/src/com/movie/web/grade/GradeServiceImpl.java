@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.movie.web.admin.AdminService;
-import com.movie.web.memer.MemberDAO;
-import com.movie.web.memer.MemberDAOImpl;
+import com.movie.web.member.MemberDAO;
+import com.movie.web.member.MemberDAOImpl;
 
 
 public class GradeServiceImpl implements GradeService{

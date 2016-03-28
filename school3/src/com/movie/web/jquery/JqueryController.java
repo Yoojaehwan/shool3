@@ -11,7 +11,7 @@ import com.movie.web.global.Command;
 import com.movie.web.global.CommandFactory;
 import com.movie.web.global.DispatcherServlet;
 import com.movie.web.global.Seperator;
-import com.movie.web.memer.MemberBean;
+import com.movie.web.member.MemberBean;
 
 @WebServlet({ "/jquery/attr.do","/jquery/core.do","/jquery/dom.do",
 	"/jquery/event.do","/jquery/selector.do","/jquery/traversing.do"})
