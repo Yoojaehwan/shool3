@@ -6,10 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
-import com.moive.web.global.Constants;
-import com.moive.web.global.DatabaseFactory;
-import com.moive.web.global.Vendor;
+import com.movie.web.global.Constants;
+import com.movie.web.global.DatabaseFactory;
+import com.movie.web.global.Vendor;
 
 public class MemberDAOImpl implements MemberDAO{
 	
@@ -159,6 +161,31 @@ public class MemberDAOImpl implements MemberDAO{
 		}
 		
 		return result;
+	}
+
+
+	@Override
+	public List<MemberBean> selectList() {
+		List<MemberBean> list = new ArrayList<MemberBean>();
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT * FROM Member ");
+			
+			while(rs.next()){
+				MemberBean temp = new MemberBean();
+				temp.setId(rs.getString("id"));
+				temp.setName(rs.getString("name"));
+				temp.setPassword(rs.getString("password"));
+				temp.setAddr(rs.getString("addr"));
+				temp.setBirth(rs.getInt("birth"));
+				list.add(temp);
+			}
+		} catch (Exception e) {
+			System.out.println("getList()에서 에러 발생");
+			e.printStackTrace();
+		}
+		System.out.println("MemDAO에서 맴버리스트 출력"+list);
+		return list;
 	}
 
 }

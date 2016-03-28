@@ -1,4 +1,4 @@
-package com.moive.web.global;
+package com.movie.web.global;
 
 /**
  *@File : Constants.java

@@ -1,6 +1,7 @@
 package com.movie.web.memer;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class MemberServiceImpl implements MemberService{
 	private	static MemberServiceImpl instance = new MemberServiceImpl();
@@ -67,6 +68,11 @@ public class MemberServiceImpl implements MemberService{
 		} else {
 			return false;
 		}
+	}
+	@Override
+	public List<MemberBean> getList() {
+		// TODO Auto-generated method stub
+		return dao.selectList();
 	}
 	
 	}

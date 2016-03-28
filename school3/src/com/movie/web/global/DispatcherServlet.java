@@ -1,4 +1,4 @@
-package com.moive.web.global;
+package com.movie.web.global;
 
 import java.io.IOException;
 
@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.moive.web.global.Command;
+import com.movie.web.global.Command;
 
 public class DispatcherServlet {
 	public static void Go(HttpServletRequest request, HttpServletResponse response, Command command) {

@@ -9,12 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.RequestDispatcher;
 
-
-
-import com.moive.web.global.Command;
-import com.moive.web.global.CommandFactory;
-import com.moive.web.global.DispatcherServlet;
-import com.moive.web.global.Seperator;
+import com.movie.web.global.Command;
+import com.movie.web.global.CommandFactory;
+import com.movie.web.global.DispatcherServlet;
+import com.movie.web.global.Seperator;
 import com.movie.web.grade.GradeBean;
 import com.movie.web.grade.GradeMemberBean;
 import com.movie.web.grade.GradeService;

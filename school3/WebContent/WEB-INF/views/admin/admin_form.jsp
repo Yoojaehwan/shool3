@@ -34,7 +34,7 @@
 <script src="$(context)/resources/js/admin.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		var arr = $('li');
+	    $('#result').load('${context}/member/list.do')
 		$('#admin_sidebar').children().first().addClass('dropdown active');
 		$('#admin_sidebar').children().click(function() {
 			$(this).siblings().removeClass('dropdown active');

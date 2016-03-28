@@ -1,4 +1,4 @@
-package com.moive.web.global;
+package com.movie.web.global;
 
 public class DatabaseFactory {
 	public static DatabaseService getDatabase(Vendor vender, String id , String password){

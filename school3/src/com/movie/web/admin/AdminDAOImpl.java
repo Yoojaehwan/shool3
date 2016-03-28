@@ -7,9 +7,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.moive.web.global.Constants;
-import com.moive.web.global.DatabaseFactory;
-import com.moive.web.global.Vendor;
+import com.movie.web.global.Constants;
+import com.movie.web.global.DatabaseFactory;
+import com.movie.web.global.Vendor;
 import com.movie.web.grade.GradeBean;
 import com.movie.web.grade.GradeMemberBean;
 import com.movie.web.memer.MemberBean;

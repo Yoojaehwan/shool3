@@ -1,6 +1,8 @@
 package com.movie.web.memer;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,10 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.moive.web.global.Command;
-import com.moive.web.global.CommandFactory;
-import com.moive.web.global.DispatcherServlet;
-import com.moive.web.global.Seperator;
+import com.movie.web.global.Command;
+import com.movie.web.global.CommandFactory;
+import com.movie.web.global.DispatcherServlet;
+import com.movie.web.global.Seperator;
 import com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane.ScalableIconUIResource;
 
 import javafx.scene.control.Separator;
@@ -21,7 +23,7 @@ import javafx.scene.control.Separator;
 @WebServlet({"/member/login_form.do",
 	"/member/join_form.do","/member/update_form.do",
 	"/member/join.do","/member/update.do","/member/delete.do",
-	"/member/login.do","/member/member_list.do"})
+	"/member/login.do","/member/list.do"})
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static MemberService service = MemberServiceImpl.getInstance();
@@ -33,6 +35,7 @@ public class MemberController extends HttpServlet {
     	Command command = new Command();
     	MemberBean member = new MemberBean();
     	HttpSession session = request.getSession();
+    	List<MemberBean> list = new ArrayList<MemberBean>();
     	String[] str = Seperator.divide(request, response);
     	//str[0] = action;
     	//str[1] = directory;
@@ -100,6 +103,10 @@ public class MemberController extends HttpServlet {
 		case "logout":
 			session.invalidate(); //세션을 종료 
 			command = CommandFactory.createCommand(str[1],"login_form"); //bom에있는것을 날리면 하부 Dom도 날라간다.
+			break;
+		case "list": 
+			request.setAttribute("list", service.getList());
+			command = CommandFactory.createCommand(str[1],"member_list");
 			break;
 		default:
 			command = CommandFactory.createCommand(str[1],str[0]);

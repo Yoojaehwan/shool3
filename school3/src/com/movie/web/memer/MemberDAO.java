@@ -1,5 +1,7 @@
 package com.movie.web.memer;
 
+import java.util.List;
+
 public interface MemberDAO {
 	public int insert(MemberBean member);
 	public MemberBean selectById(String id, String password);
@@ -7,5 +9,6 @@ public interface MemberDAO {
 	public int update(MemberBean member);
 	public int delete(String id);
 	public boolean isMember(String id);
+	public List<MemberBean> selectList();
 
 }

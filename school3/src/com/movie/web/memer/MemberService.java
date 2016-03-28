@@ -1,6 +1,6 @@
 package com.movie.web.memer;
 
-
+import java.util.List;
 
 public interface MemberService {
 	// 인터페이스는 추상메서드만 와야한다는 문법이 있어서 
@@ -13,4 +13,5 @@ public interface MemberService {
 	public int update(MemberBean member);
 	public int remove(String id);
 	public boolean isMember(String id);
+	public List<MemberBean> getList();
 }
