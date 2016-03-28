@@ -2,9 +2,10 @@
 <header style="width:100%;margin: 0 auto">
  <h3 style="color: white; text-align: center;">
   		<a href="${context}/global/main.do">한빛 성적 관리</a>
-  		</h3>
-  		<p style="float:right; margin-right: 50px"><fmt:formatDate type="both" value="${now}" /></p>
-  
+  	</h3>
+  	<p style="float:right;margin-right: 50px;"><fmt:formatDate type="both" value="${now}" /></p>
+            
+
 <ul class="nav nav-pills">
  
   <li role="presentation" class="dropdown" style="margin-left: 100px">
@@ -24,17 +25,18 @@
     	<li><a href="${context}/js/pattern.do">패턴</a></li>
     </ul>
   </li>
-  <li role="presentation" class="dropdown" style="margin-left: 100px">
+   <li role="presentation" class="dropdown" style="margin-left: 100px">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-      JQuery <span class="caret"></span>
+      jQuery <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
-    	<li><a href="${context}/jquery/attr.do">jQuery 속성</a></li>
-    	<li><a href="${context}/jquery/core.do">Core</a></li>
+    	<li><a href="${context}/jquery/attr.do">속성</a></li>
+    	<li><a href="${context}/jquery/core.do">코어</a></li>
+    	<li><a href="${context}/jquery/dom.do">돔</a></li>
     	<li><a href="${context}/jquery/event.do">이벤트</a></li>
-    	<li><a href="${context}/jquery/selector.do">선택자</a></li>
-    	<li><a href="${context}/jquery/traversing.do">조회</a></li>
-    	<li><a href="${context}/jquery/dom.do">dom</a></li>
+    	<li><a href="${context}/jquery/selector.do">셀렉터</a></li>
+    	<li><a href="${context}/jquery/traversing.do">트레벌싱</a></li>
+    	
     </ul>
   </li>
 </ul>

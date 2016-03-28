@@ -1,11 +1,6 @@
 package com.movie.web.grade;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import com.movie.web.admin.AdminService;
-import com.movie.web.member.MemberDAO;
-import com.movie.web.member.MemberDAOImpl;
 
 
 public class GradeServiceImpl implements GradeService{

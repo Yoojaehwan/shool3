@@ -1,8 +1,6 @@
 package com.movie.web.grade;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 import com.movie.web.admin.AdminBean;
 

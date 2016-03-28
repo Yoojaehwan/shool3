@@ -22,7 +22,7 @@
 <script>
 $(function() {
 	$('#member_list').css('border','1px solid black').css('width', '90%')
-	.css('margin-top', '70px');
+	.css('margin-top', '100px');
 	$('#member_list tr').css('border','1px solid black');
 	$('#member_list tr td').css('border','1px solid black')
 	.css('text-align', 'center');

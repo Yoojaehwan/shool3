@@ -1,7 +1,6 @@
 package com.movie.web.grade;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -12,7 +11,7 @@ import java.util.List;
  *  D : Delete 삭제
  *@package : grade
  *@file : GradeService.java
- *@author inhyeon
+ *@author 류재환
  *@date 2016. 3. 14.
  *@story 속성은 감추고 기능은 오픈한다.
  */

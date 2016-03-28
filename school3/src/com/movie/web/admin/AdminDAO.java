@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.movie.web.grade.GradeBean;
 import com.movie.web.grade.GradeMemberBean;
-import com.movie.web.member.MemberBean;
+
 
 public interface AdminDAO {
 	// C 성적표 등록 
