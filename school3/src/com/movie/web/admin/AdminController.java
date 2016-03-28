@@ -28,8 +28,6 @@ import oracle.net.ano.Service;
 @WebServlet({"/admin/login_form.do","/admin/login.do","/admin/admin_form.do"})
 public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static AdminService service = (AdminService) AdminServiceImpl.getInstance();
-
        
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,27 +35,23 @@ public class AdminController extends HttpServlet {
     	AdminBean admin = new AdminBean();
     	HttpSession session = request.getSession();
     	String[] str = Seperator.divide(request, response);
-		
+    	AdminService service = (AdminService) AdminServiceImpl.getInstance();
 		
 		switch (str[0]) {
 		
-		case 
-
+		case "admin_form": command = CommandFactory.createCommand(str[1], str[0]); break;
 		case "login" :
-			if (service.isAdmin(request.getParameter("id")) == true) {
-				System.out.println("=== 아이디가 존재함 ===");
-				admin = service.login(request.getParameter("id"), request.getParameter("password"));
-				if (admin == null) {
-					command = CommandFactory.createCommand(str[1],"admin_login_form");
-				}else{
-					System.out.println("=== 로그인 성공 ===");
-					//request.setAttribute("member", member);//지우기 속도 향상 //dom 담기 
-					session.setAttribute("admin", admin);//bom 담기
-					command = CommandFactory.createCommand(str[1],"admin_form");
-				}
+			System.out.println("관리자 로그인 진입");
+			admin.setId(request.getParameter("id"));
+			admin.setPassword(request.getParameter("password"));
+			AdminBean temp = service.getAdmin(admin);
+			if (temp == null) {
+				System.out.println("관리자 로그인 실패");
+				command = CommandFactory.createCommand(str[1], "login_form");
 			} else {
-				System.out.println("=== 로그인 실패 ===");
-				command = CommandFactory.createCommand(str[1],"admin_login_form");
+				System.out.println("관리자 로그인 성공");
+				session.setAttribute("admin", temp);
+				command = CommandFactory.createCommand(str[1], "admin_form");
 			}
 			
 			break;

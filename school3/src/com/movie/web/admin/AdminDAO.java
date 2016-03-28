@@ -21,7 +21,5 @@ public interface AdminDAO {
 	
 	public AdminBean selectById(String id, String password);
 	
-	public boolean isAdmin(String id);
-
 }
 

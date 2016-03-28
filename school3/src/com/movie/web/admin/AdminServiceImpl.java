@@ -4,22 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.movie.web.grade.GradeBean;
-import com.movie.web.grade.GradeDAO;
-import com.movie.web.grade.GradeDAOImpl;
 import com.movie.web.grade.GradeMemberBean;
-import com.movie.web.grade.GradeServiceImpl;
-import com.movie.web.memer.MemberBean;
+
 
 public class AdminServiceImpl implements AdminService{
-private static AdminServiceImpl instance = new AdminServiceImpl();
-
+	private static AdminServiceImpl instance = new AdminServiceImpl();
+	AdminDAO dao = AdminDAOImpl.getInstance();
+	ArrayList<GradeBean> gradeList;
+	
+	
 	public static AdminServiceImpl getInstance() {
 		return instance;
 	}
-	AdminDAO dao = AdminDAOImpl.getInstance();
 	
-	ArrayList<GradeBean> gradeList;
 	
+
 	public AdminServiceImpl() {
 		gradeList = new ArrayList<GradeBean>(); // 초기화
 	}
@@ -49,7 +48,7 @@ private static AdminServiceImpl instance = new AdminServiceImpl();
 	@Override
 	public AdminBean getAdmin(AdminBean admin) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.selectAdmin(admin);
 	}
 	@Override
 	public AdminBean login(String id, String password) {
@@ -65,17 +64,6 @@ private static AdminServiceImpl instance = new AdminServiceImpl();
 		// 로그인
 		// 아이디가 존재하지 않아서 실패한 경우와 비번이 틀려서 실패한 경우에 따라서
 		// 메시지를 전달해줘야 함
-	}
-	@Override
-	public boolean isAdmin(String id ) {
-		boolean admin = false;
-		admin = dao.isAdmin(id);
-		
-		if (admin == true) {
-			return admin;
-		} else {
-			return false;
-		}
 	}
 }
 

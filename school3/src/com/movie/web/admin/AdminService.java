@@ -22,6 +22,6 @@ public interface AdminService {
 		
 		public AdminBean login(String id, String password);
 		
-		public boolean isAdmin(String id);
+	/*	public boolean isAdmin(String id);*/
 
 }
