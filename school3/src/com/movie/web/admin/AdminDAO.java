@@ -16,5 +16,12 @@ public interface AdminDAO {
 	public ArrayList<GradeMemberBean> getGradeByName(String name);
 	// R 성적표 조회(아이디)
 	public GradeBean getGradeById(String id);
+	
+	public AdminBean selectAdmin(AdminBean admin);
+	
+	public AdminBean selectById(String id, String password);
+	
+	public boolean isAdmin(String id);
+
 }
 

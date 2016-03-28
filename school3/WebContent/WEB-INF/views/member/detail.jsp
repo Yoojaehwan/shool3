@@ -2,39 +2,39 @@
 <jsp:include page="../global/header.jsp"/>
 <div id="detail">
 		<div class="joinTop">
-			<h2 class="text-center">회원상제정보</h2>
-		</div>
+			<h2 class="text-center">${sessionScope_user.name} 상제정보</h2>
+		</div>					
 		<div class="joinCenter row">
 			<form >
 				<fieldset class="joinField">
 					<div class="form-group">
 					 	<label for="input_id" class="col-sm-4 control-label">아이디</label>
 					 	<div class="col-sm-4">
-							<input type="text" class="form-control" id="id" name="id" value="${member.id }" readonly="readonly"/>
+							<input type="text" class="form-control" id="id" name="id" value="${sessionScope_user.id }" readonly="readonly"/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="input_pw" class="col-sm-4 control-label">비밀번호</label>
 					 	<div class="col-sm-4">
-						<input type="password" class="form-control" id="password" name="password" value="${member.password}" readonly="readonly"/>
+						<input type="password" class="form-control" id="password" name="password" value="${sessionScope_user.password}" readonly="readonly"/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="input_name" class="col-sm-4 control-label">이름</label>
 					 	<div class="col-sm-4">
-								<input type="text" class="form-control" id="name" name="name" value="${member.name}" readonly="readonly"/>
+								<input type="text" class="form-control" id="name" name="name" value="${sessionScope_user.name}" readonly="readonly"/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="input_name" class="col-sm-4 control-label">주소</label>
 					 	<div class="col-sm-4">
-							<input type="text" class="form-control" id="addr" name="addr" value="${member.addr}" readonly="readonly"/>
+							<input type="text" class="form-control" id="addr" name="addr" value="${sessionScope_user.addr}" readonly="readonly"/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="input_name" class="col-sm-4 control-label">생년월일</label>
 					 	<div class="col-sm-4">
-							<input type="text" class="form-control" id="birth" name="birth" value="${member.birth}" readonly="readonly"/>
+							<input type="text" class="form-control" id="birth" name="birth" value="${sessionScope_user.birth}" readonly="readonly"/>
 						</div>
 					</div>
 					
@@ -53,15 +53,15 @@
 		    $(function() {
 		  $('form').addClass('form-horizontal');
 			$('#updateButton').addClass('btn btn-primary').click(function() {
-				location.href = '${context}/member/update_form.do?id=${member.id}'; 
+				location.href = '${context}/member/update_form.do'; 
 			});
 	      
 	     
 			$('#deleteButton').addClass('btn btn-primary').click(function() {
-		       location.href = '${context}/member/delete.do?id=${member.id}';
+		       location.href = '${context}/member/delete.do';
 	          	 });
 	      	$('#scoreButton').addClass('btn btn-primary').click(function() {
-		       location.href = '${context}/grade/my_grade.do?id=${member.id}';
+		       location.href = '${context}/grade/my_grade.do';
 	          	 });
 	         });
 	   

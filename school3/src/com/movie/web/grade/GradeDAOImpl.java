@@ -12,6 +12,7 @@ import java.util.Map;
 import com.moive.web.global.Constants;
 import com.moive.web.global.DatabaseFactory;
 import com.moive.web.global.Vendor;
+import com.movie.web.admin.AdminBean;
 import com.movie.web.memer.MemberBean;
 
 public class GradeDAOImpl implements GradeDAO {
@@ -148,6 +149,12 @@ public class GradeDAOImpl implements GradeDAO {
 		
 		return bean;
 
+	}
+
+	@Override
+	public AdminBean selectById(String id, String password) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

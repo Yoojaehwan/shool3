@@ -1,6 +1,6 @@
 package com.movie.web.memer;
 
-import java.util.HashMap;
+
 
 public interface MemberService {
 	// 인터페이스는 추상메서드만 와야한다는 문법이 있어서 

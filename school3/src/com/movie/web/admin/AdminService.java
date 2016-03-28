@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.movie.web.grade.GradeBean;
 import com.movie.web.grade.GradeMemberBean;
+import com.movie.web.memer.MemberBean;
 
 public interface AdminService {
 	// C 성적표 등록 
@@ -16,5 +17,11 @@ public interface AdminService {
 		public ArrayList<GradeMemberBean> getGradeByName(String name);
 		// R 성적표 조회(아이디)
 		public GradeBean getGradeById(String id);
+		
+		public AdminBean getAdmin(AdminBean admin);
+		
+		public AdminBean login(String id, String password);
+		
+		public boolean isAdmin(String id);
 
 }

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.movie.web.admin.AdminBean;
+
 
 public interface GradeDAO {
 	// C 성적표 등록 
@@ -23,4 +25,7 @@ public interface GradeDAO {
 		
 		// R 성적표 조회(아이디)
 		public GradeBean getGradeById(String id);
+		
+		public AdminBean selectById(String id, String password);
+		
 }

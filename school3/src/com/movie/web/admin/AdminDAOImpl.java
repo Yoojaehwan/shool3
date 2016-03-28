@@ -12,6 +12,7 @@ import com.moive.web.global.DatabaseFactory;
 import com.moive.web.global.Vendor;
 import com.movie.web.grade.GradeBean;
 import com.movie.web.grade.GradeMemberBean;
+import com.movie.web.memer.MemberBean;
 
 public class AdminDAOImpl implements AdminDAO{
 	private Connection conn; // 오라클 연결 객체
@@ -135,4 +136,69 @@ public class AdminDAOImpl implements AdminDAO{
 		return bean;
 	}
 
-}
+	@Override
+	public AdminBean selectAdmin(AdminBean admin) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+	@Override
+	public AdminBean selectById(String id, String password) {
+		AdminBean admin = new AdminBean();
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT * FROM Admin WHERE id ='"+id+"' and password = '"+password+"'");
+			while (rs.next()) {
+				admin.setId(rs.getString("id"));
+				admin.setName(rs.getString("name"));
+				admin.setPassword(rs.getString("password"));
+				admin.setAddr(rs.getString("addr"));
+				admin.setBirth(rs.getInt("birth"));
+			}
+			
+		} catch (Exception e) {
+			System.out.println("selectMember() 에서 에러 발생함 !!");
+			e.printStackTrace();
+		}
+		System.out.println("쿼리 조회 결과 :"+admin.getAddr());
+		if (admin.getAddr() != null) {
+			System.out.println("쿼리 조회 결과 :"+admin.getAddr());
+			return admin;
+		} else {
+			System.out.println("쿼리 조회 결과 : null ");
+			return null;
+		}
+		
+	}
+
+	@Override
+	public boolean isAdmin(String id) {
+		AdminBean temp = new AdminBean();
+		boolean result = false;
+		
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT * FROM Admin WHERE id = " + "'" + id + "'");
+			
+			while(rs.next()){
+				temp.setId(rs.getString("id"));
+				temp.setName(rs.getString("name"));
+				temp.setPassword(rs.getString("password"));
+				temp.setAddr(rs.getString("addr"));
+				temp.setBirth(rs.getInt("birth"));
+				temp.setRole(rs.getString("role"));
+				
+				
+				result = true;
+			}
+		} catch (Exception e) {
+			System.out.println("isAdmin()에서 에러 발생");
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	}
+
+
