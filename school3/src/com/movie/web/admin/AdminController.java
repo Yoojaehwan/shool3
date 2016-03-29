@@ -17,41 +17,48 @@ import com.movie.web.global.Seperator;
 /**
  * Servlet implementation class AdminController
  */
-@WebServlet({"/admin/login_form.do","/admin/login.do","/admin/admin_form.do"})
+@WebServlet({"/admin/admin_form.do","/admin/login_form.do","/admin/login.do"})
 public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	Command command = new Command();
-    	AdminBean admin = new AdminBean();
-    	HttpSession session = request.getSession();
-    	String[] str = Seperator.divide(request, response);
-    	AdminService service = (AdminService) AdminServiceImpl.getInstance();
-		
-		switch (str[0]) {
-		
-		case "admin_form": command = CommandFactory.createCommand(str[1], str[0]); break;
+		AdminBean admin = new AdminBean();
+		HttpSession session = request.getSession();
+		AdminService service = AdminServiceImpl.getInstance();
+		String[] str = Seperator.extract(request);
+		String directory = str[0], action = str[1];
+		int result = 0;
+
+		switch (action) {
+
+		case "admin_form": command = CommandFactory.createCommand(directory, action); break;
 		case "login" :
 			System.out.println("관리자 로그인 진입");
-			admin.setId(request.getParameter("id"));
+			/*String id = request.getParameter("id");*/
+					admin.setId(request.getParameter("id"));
+		/*	System.out.println("login_form에서 넘어온 id=" + id);*/
+			
 			admin.setPassword(request.getParameter("password"));
 			AdminBean temp = service.getAdmin(admin);
-			if (temp == null) {
+			System.out.println("temp =" + temp);
+			if (temp.getId()==null) {
 				System.out.println("관리자 로그인 실패");
-				command = CommandFactory.createCommand(str[1], "login_form");
+				command = CommandFactory.createCommand(directory, "login_form");
 			} else {
 				System.out.println("관리자 로그인 성공");
 				session.setAttribute("admin", temp);
-				command = CommandFactory.createCommand(str[1], "admin_form");
+				command = CommandFactory.createCommand(directory, "admin_form");
 			}
 			
 			break;
+		
 		default:
-			command = CommandFactory.createCommand(str[1], str[0]);
+			command = CommandFactory.createCommand(directory, action);
 			break;
 		}
-		DispatcherServlet.Go(request, response, command);
+		DispatcherServlet.go(request, response, command.getView());
     }
- 
+
 }

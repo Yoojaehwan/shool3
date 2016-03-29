@@ -2,7 +2,7 @@ package com.movie.web.grade;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,18 +11,24 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.movie.web.global.Command;
 import com.movie.web.global.CommandFactory;
+import com.movie.web.global.DispatcherServlet;
+import com.movie.web.member.MemberService;
+import com.movie.web.member.MemberServiceImpl;
 
 /**
  * Servlet implementation class GradeController
  */
-@WebServlet("/grade/my_grade.do")
+@WebServlet({"/grade/my_grade.do","/grade/grade_add.do","/grade/add.do"})
 public class GradeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	static GradeService service = GradeServiceImpl.getInstance();
        
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Command command = new Command();
-    	GradeBean Grade = new GradeBean();
+    	GradeBean grade = new GradeBean();
+    	GradeService service = new GradeServiceImpl();
+    	MemberService memberService = MemberServiceImpl.getInstance();
     	String id="";
     	String path = request.getServletPath();
 		String temp = path.split("/")[2];
@@ -33,21 +39,17 @@ public class GradeController extends HttpServlet {
 		switch (action) {
 		case "my_grade":
 			
-			request.setAttribute("score", service.getGradeById(request.getParameter("id")));
-			command = CommandFactory.createCommand(directory,action);
-			
 			break;
-
+		case "add_form":
+			request.setAttribute("member",  memberService.detail(request.getParameter("id")));
+			CommandFactory.createCommand(directory, action);
+			break;
+		case "list":
+			CommandFactory.createCommand(directory, "grade_list");
+			break;
 		default:
 			break;
 		}
-		RequestDispatcher dis = 
-				request.getRequestDispatcher(command.getView());
-		dis.forward(request, response);
-		
+		DispatcherServlet.go(request, response, command.getView());
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	}
-
 }

@@ -35,6 +35,6 @@ public interface GradeService {
 	public String delete(int hak);
 	// R 성적표 조회(아이디)
 	public GradeBean getGradeById(String id);
-	
+
 	
 }

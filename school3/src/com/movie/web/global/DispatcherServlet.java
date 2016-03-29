@@ -1,21 +1,18 @@
 package com.movie.web.global;
 
-
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.movie.web.global.Command;
-
 public class DispatcherServlet {
-	public static void Go(HttpServletRequest request, HttpServletResponse response, Command command) {
-	
+	public static void go(HttpServletRequest request,HttpServletResponse response, String view){
 		try {
-			RequestDispatcher dis = request.getRequestDispatcher(command.getView());
+			Command c = new Command();
+			RequestDispatcher dis = request.getRequestDispatcher(view);
 			dis.forward(request, response);
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} 
 	}
 }

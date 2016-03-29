@@ -144,6 +144,7 @@ public class AdminDAOImpl implements AdminDAO{
 			pstmt = conn.prepareStatement("SELECT * FROM Admin WHERE id = ? and password=?");
 			pstmt.setString(1, admin.getId());
 			pstmt.setString(2, admin.getPassword());
+			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				temp.setId(rs.getString("id"));
 				temp.setName(rs.getString("name"));

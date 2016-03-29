@@ -5,7 +5,7 @@
 			<h2 class="text-center">회원가입</h2>
 		</div>
 		<div class="joinCenter row">
-			<form>
+			<form action="${context}/member/join.do" method="post" name="joinForm" class="form-horizontal">
 				<fieldset class="joinField">
 					<div class="form-group">
 					 	<label for="input_id" class="col-sm-4 control-label">아이디</label>
@@ -43,55 +43,12 @@
 							<input type="text" class="form-control" id="birth" name="birth" placeholder="생년월일을 입력하세요"/>
 						</div>
 					</div>
-					<div>
-					<div class="form-group">
-					<label for="input_name" class="col-sm-4 control-label">수강과목</label>
-					 	<div class="col-sm-4">
-							<input type="checkbox" class="form-control" id="subject" name="subject" /> Java
-							<input type="checkbox" class="form-control" id="subject" name="subject" /> JSP
-							<input type="checkbox" class="form-control" id="subject" name="subject" /> SQL
-							<input type="checkbox" class="form-control" id="subject" name="subject" /> Spring
-							<input type="checkbox" class="form-control" id="subject" name="subject" /> 파이썬
-							<input type="checkbox" class="form-control" id="subject" name="subject" /> 노드 JS
-							<input type="checkbox" class="form-control" id="subject" name="subject" /> Android
-					</div>
-					<div class="form-group">
-						<label for="input_name" class="col-sm-4 control-label">전 공</label>
-						<select name="major" id="major"></select>
-						<option value="computer">컴퓨터공학</option>
-						<option value="info">정보통신</option>
-						<option value="security">정보보안</option>
-					</div>
-					
-					
 					<div class="input_button text-center">
-						<button id="joinButton">회원가입</button>
-						<button id="cancelButton">취소</button>
-					
+						<input type="submit" id="joinButton" class="btn btn-primary" value ="회원가입"/>
+						<input type="reset" id="cancleButton" class="btn btn-primary" value ="취소"/>
 					</div>
 						
 				</fieldset>
 			</form>
 		</div>
 	</div>
-
-<script>
- 
-	    $(function() {
-	  $('form').addClass('form-horizontal');
-      $('#joinButton').css('width','150px');
-      $('#joinButton').click(function() {
-         $('form').attr('action','${context}/member/join.do')
-         .attr('method','post').submit();
-      });
-      
-      $('#cancelButton').css('width','100px');
-      $('#cancelButton').click(function() {
-           $('form').attr('type','reset').submit();
-          	 });
-         });
-   
-   
-
-   
-</script>

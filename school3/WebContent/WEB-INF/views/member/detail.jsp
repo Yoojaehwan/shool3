@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:include page="../global/header.jsp"/>
+<jsp:include page="../member/member_header.jsp"/>
 <div id="detail">
 		<div class="joinTop">
-			<h2 class="text-center">${sessionScope.user.name} 상제정보</h2>
+			<h2 class="text-center">${sessionScope.user.name} 상세정보</h2>
 		</div>					
 		<div class="joinCenter row">
 			<form >
@@ -44,7 +44,6 @@
       			   <div class="input_button text-center">
 						<button  id="updateButton">내정보수정하기</button>
 						<button  id="deleteButton">아이디삭제하기</button>
-						<button  id="scoreButton">내성적보기</button>
 					</div>
 		</div>
 	</div>
@@ -59,9 +58,6 @@
 	     
 			$('#deleteButton').addClass('btn btn-primary').click(function() {
 		       location.href = '${context}/member/delete.do';
-	          	 });
-	      	$('#scoreButton').addClass('btn btn-primary').click(function() {
-		       location.href = '${context}/grade/my_grade.do';
 	          	 });
 	         });
 	   
