@@ -22,8 +22,14 @@ VALUES ('kim2', '김유신', '1', '제주', 981210);
 INSERT INTO Member(id, name, password, addr, birth)
 VALUES ('yoo', '유아인', '1', '강릉', 860205);
 
-UPDATE MEMBER SET password ='1' , addr = '도쿄'
-WHERE id = 'choi';
+UPDATE MEMBER SET subject ='java/jsp/sql/spring' , major = 'computer' WHERE id = 'lee';
+UPDATE MEMBER SET subject ='java/jsp/sql/spring' , major = 'computer' WHERE id = 'cha';
+UPDATE MEMBER SET subject ='java/jsp/sql/spring' , major = 'computer' WHERE id = 'park';
+UPDATE MEMBER SET subject ='java/jsp/sql/spring' , major = 'info' WHERE id = 'kim2';
+UPDATE MEMBER SET subject ='java/jsp/sql/spring' , major = 'info' WHERE id = 'yoo';
+UPDATE MEMBER SET subject ='java/jsp/sql/spring' , major = 'security' WHERE id = 'kim';
+UPDATE MEMBER SET subject ='java/jsp/sql/spring' , major = 'security' WHERE id = 'hong';
+
 
 
 SELECT * FROM Member;
@@ -33,3 +39,20 @@ WHERE id = 'choi';
 
 
 DELETE FROM Member WHERE id = 'choi';
+
+
+
+
+
+-- DDL 테이블 수정
+
+
+--1. 컬럼추가
+ALTER TABLE Member ADD subject varchar2(100); -- java/sql/spring
+ALTER TABLE Member ADD major varchar2(20); 
+
+--2. 컬럼 수정(이름)
+ALTER TABLE Member  RENAME COLUMN password TO passl
+
+--3. 컬럼 수정(타입)
+ALTER TABLE Member MODIFY birth DATE;
